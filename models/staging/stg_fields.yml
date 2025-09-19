@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_fields
+    description: "Staging table for field definitions and their metadata"
+    columns:
+      - name: field_id
+        description: "Unique identifier for the field"
+        tests:
+          - unique
+          - not_null
+
+      - name: field_key
+        description: "Key identifier for the field (add_time, user_id, stage_id, lost_reason)"
+        tests:
+          - not_null
+          - unique
+          - accepted_values:
+              values: ['add_time', 'user_id', 'stage_id', 'lost_reason']
+
+      - name: name
+        description: "Human-readable name of the field"
+        tests:
+          - not_null
+
+      - name: field_value_options
+        description: "JSON string containing possible values for this field (if applicable)"

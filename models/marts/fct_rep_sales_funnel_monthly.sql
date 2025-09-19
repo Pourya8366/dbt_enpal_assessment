@@ -25,7 +25,7 @@ sales_call_activity as (
         due_to_time,
         deal_id,
         activity_type
-    from {{ ref('stg_activity') }}
+    from {{ ref('int_activity_deduped') }}
     where activity_type in ('meeting', 'sc_2') and is_done = true
 ),
 

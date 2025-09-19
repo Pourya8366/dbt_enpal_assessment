@@ -3,9 +3,12 @@ with
 
     renamed as (
         select
-            id,
+            id as activity_type_id,
             name as activity_name,
-            active as is_active,
+            case active
+                when 'Yes' then true
+                when 'No' then false
+            end as is_active,
             type as activity_type
         from source
     )

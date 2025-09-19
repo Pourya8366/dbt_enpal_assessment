@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: "Staging table for users"
+    columns:
+      - name: user_id
+        description: "Unique identifier for the user"
+        tests:
+          - unique
+          - not_null
+
+      - name: user_name
+        description: "Anonymized name of the user (format: User_XXX)"
+        tests:
+          - not_null
+
+      - name: user_email
+        description: "Anonymized email address of the user (format: user_XXX@company.local)"
+        tests:
+          - not_null

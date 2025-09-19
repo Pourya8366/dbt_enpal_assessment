@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_deal_changes
+    description: "Staging table for deal changes tracking field modifications over time"
+    columns:
+      - name: deal_id
+        description: "ID of the deal that was changed"
+        tests:
+          - not_null
+
+      - name: change_time
+        description: "Timestamp when the change occurred"
+        tests:
+          - not_null
+
+      - name: changed_field_key
+        description: "Key identifying which field was changed (add_time, user_id, stage_id, lost_reason)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['add_time', 'user_id', 'stage_id', 'lost_reason']
+
+      - name: new_value
+        description: "New value after the change"
+        tests:
+          - not_null

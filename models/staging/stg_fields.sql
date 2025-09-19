@@ -3,7 +3,7 @@ with
 
     renamed as (
         select
-            id,
+            id as field_id,
             field_key,
             name,
             field_value_options
