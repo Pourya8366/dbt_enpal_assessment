@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_activity_types
+    description: "Staging table for activity types with cleaned and renamed columns"
+    columns:
+      - name: activity_type_id
+        description: "Unique identifier for activity type"
+        tests:
+          - unique
+          - not_null
+
+      - name: activity_name
+        description: "Name of the activity type (e.g., Sales Call 1, Follow Up Call)"
+        tests:
+          - not_null
+
+      - name: is_active
+        description: "Boolean flag indicating if the activity type is currently active"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [true, false]
+
+      - name: activity_type
+        description: "Type classification of the activity (e.g., meeting, sc_2, follow_up, after_close_call)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['meeting', 'sc_2', 'follow_up', 'after_close_call']

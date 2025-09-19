@@ -4,5 +4,17 @@ sources:
   - name: postgres_public
     database: postgres
     schema: public
+
     tables:
       - name: activity
+        identifier: activity
+      - name: activity_types
+        identifier: activity_types
+      - name: deal_changes
+        identifier: deal_changes
+      - name: fields
+        identifier: fields
+      - name: stages
+        identifier: stages
+      - name: users
+        identifier: users

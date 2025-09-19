@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: int_activity_deduped
+    description: "depulicated table of activities"
+    columns:
+      - name: pk
+        description: "Unique identifier for each activity"
+        tests:
+          - unique
+          - not_null
+
+      - name: activity_type
+        description: "Type of activity (follow_up, sc_2, meeting, etc.)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['follow_up', 'sc_2', 'meeting','after_close_call']
+
+      - name: assigned_to_user
+        description: "User ID of the person assigned to this activity"
+        tests:
+          - not_null
+
+      - name: deal_id
+        description: "ID of the deal this activity is associated with"
+        tests:
+          - not_null
+
+      - name: is_done
+        description: "Boolean flag indicating if the activity is completed"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [true, false]
+
+      - name: due_to_time
+        description: "Due date and time for the activity completion"
+        tests:
+          - not_null

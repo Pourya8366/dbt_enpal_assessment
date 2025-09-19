@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: "Staging table for users"
+    columns:
+      - name: pk
+        description: "Unique identifier for the user"
+        tests:
+          - unique
+          - not_null

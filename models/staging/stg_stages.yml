@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_stages
+    description: "Staging table for deal pipeline stages"
+    columns:
+      - name: stage_id
+        description: "Unique identifier for the stage"
+        tests:
+          - unique
+          - not_null
+
+      - name: stage_name
+        description: "Name of the pipeline stage"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [
+                'Lead Generation',
+                'Qualified lead',
+                'Needs Assessment',
+                'Proposal/Quote Preparation',
+                'Negotiation',
+                'Closing',
+                'Implementation/Onboarding',
+                'Follow-up/Customer Success',
+                'Renewal/Expansion'
+              ]

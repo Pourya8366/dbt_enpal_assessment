@@ -1,0 +1,16 @@
+dbt/profiles.yml
+dbt/.user.yml
+dbt/target/
+dev/
+logs/
+target/
+dbt_packages/
+.vscode/settings.json
+.DS_Store
+*__pycache__*
+.aws
+tf/.terraform.lock.hcl
+tf/.terraform
+dbt_test_target/
+test
+dbt_internal_packages/
