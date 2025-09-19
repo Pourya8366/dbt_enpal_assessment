@@ -3,9 +3,7 @@ with
 
     renamed as (
         select
-            id as user_id,
-            concat('User_', lpad(id::text, 3, '0')) as user_name,
-            concat('user_', lpad(id::text, 3, '0'), '@company.local') as user_email
+            {{ dbt_utils.generate_surrogate_key(['id','name','email']) }} as pk
         from source
     )
 
